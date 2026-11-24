@@ -1,3 +1,17 @@
 {
-  "framework": "container"
+  "services": {
+    "streamlit": {
+      "root": ".",
+      "runtime": "container",
+      "entrypoint": "Dockerfile.vercel"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "streamlit"
+      }
+    }
+  ]
 }
